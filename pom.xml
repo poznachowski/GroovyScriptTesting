@@ -13,6 +13,7 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
 		<mule.version>3.4.0</mule.version>
+		<junitparams.version>1.0.2</junitparams.version>
 		<eclipsePluginVersion>2.8</eclipsePluginVersion>
 		<jdkName>JavaSE-1.6</jdkName>
 		<jdk.version>1.6</jdk.version>
@@ -21,6 +22,9 @@
 
 	<build>
 		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+			</resource>
 			<resource>
 				<directory>src/main/scripts</directory>
 				<targetPath>scripts</targetPath>
@@ -101,27 +105,6 @@
 					<!-- by default download all sources when generating project files -->
 					<downloadSources>true</downloadSources>
 				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>build-helper-maven-plugin</artifactId>
-				<version>1.7</version>
-				<executions>
-					<execution>
-						<id>add-resource</id>
-						<phase>generate-resources</phase>
-						<goals>
-							<goal>add-resource</goal>
-						</goals>
-						<configuration>
-							<resources>
-								<resource>
-									<directory>src/main/app/</directory>
-								</resource>
-							</resources>
-						</configuration>
-					</execution>
-				</executions>
 			</plugin>
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
@@ -330,6 +313,12 @@
 			<artifactId>mule-transport-quartz</artifactId>
 			<version>${mule.version}</version>
 			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>pl.pragmatists</groupId>
+			<artifactId>JUnitParams</artifactId>
+			<version>${junitparams.version}</version>
+			<scope>test</scope>
 		</dependency>
 	</dependencies>
 

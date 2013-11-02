@@ -9,11 +9,11 @@ http://www.mulesoft.org/schema/mule/scripting http://www.mulesoft.org/schema/mul
         <quartz:inbound-endpoint jobName="startJob" repeatInterval="5000" responseTimeout="10000" doc:name="Quartz">
             <quartz:event-generator-job/>
         </quartz:inbound-endpoint>
-        <set-variable variableName="firstName" value="Greg" doc:name="Variable"/>
-        <logger message="first name: #[firstName]" level="INFO" doc:name="Logger"/>
-        <scripting:component doc:name="Groovy">
-            <scripting:script engine="Groovy" file="scripts/GroovyScriptTesting/AddLastName.groovy"/>
+        <set-variable variableName="number" value="5" doc:name="Set Number"/>
+        <logger message="Number #[number]" level="INFO" doc:name="Show Number"/>
+        <scripting:component doc:name="Calculate Square Number">
+            <scripting:script engine="Groovy" file="scripts/GroovyScriptTesting/CalculateSquareNumber.groovy"/>
         </scripting:component>
-        <logger message="Full name: #[fullName]" level="INFO" doc:name="Logger"/>
+        <logger message="Square of #[number] is #[squareNumber]" level="INFO" doc:name="Show Square Number"/>
     </flow>
 </mule>
